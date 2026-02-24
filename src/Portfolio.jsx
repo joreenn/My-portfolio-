@@ -171,7 +171,7 @@ export default function Portfolio() {
       style={{
         background: "linear-gradient(145deg, #0f0420 0%, #1a0638 20%, #2e1065 42%, #1a0638 65%, #0d0222 100%)",
         color: "#ede9fe",
-        fontFamily: "'Playfair Display', Georgia, serif",
+        fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
       }}>
 
       <ShootingStars />
@@ -203,9 +203,9 @@ export default function Portfolio() {
             {NAV_LINKS.map((l) => (
               <button key={l} onClick={() => scrollTo(l)}
                 className="text-xs tracking-widest uppercase transition-colors duration-200"
-                style={{ color: "rgba(216,180,254,0.45)" }}
+                style={{ color: "rgba(216,180,254,0.72)" }}
                 onMouseEnter={(e) => (e.target.style.color = "#d8b4fe")}
-                onMouseLeave={(e) => (e.target.style.color = "rgba(216,180,254,0.45)")}>
+                onMouseLeave={(e) => (e.target.style.color = "rgba(216,180,254,0.72)")}>
                 {l}
               </button>
             ))}
@@ -370,7 +370,7 @@ export default function Portfolio() {
             <h2 className="text-4xl md:text-5xl" style={{ letterSpacing: "-0.02em", color: "#f3e8ff" }}>
               My <GradSpan>Skills</GradSpan>
             </h2>
-            <p className="mt-4 text-sm max-w-md mx-auto" style={{ color: "rgba(237,233,254,0.45)", lineHeight: "1.8" }}>
+            <p className="mt-4 text-sm max-w-md mx-auto" style={{ color: "rgba(237,233,254,0.72)", lineHeight: "1.8" }}>
               A focused set of tools I rely on to build reliable, scalable software.
             </p>
           </div>
@@ -443,7 +443,7 @@ export default function Portfolio() {
                   <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "rgba(192,132,252,0.5)", fontSize: "1.1rem" }}>↗</span>
                 </div>
                 <h3 className="text-xl font-normal mb-3" style={{ color: "#f3e8ff" }}>{p.title}</h3>
-                <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(237,233,254,0.5)", lineHeight: "1.8" }}>{p.desc}</p>
+                <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(237,233,254,0.75)", lineHeight: "1.8" }}>{p.desc}</p>
                 <div className="flex flex-wrap gap-2" style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
                   {p.tags.map((t) => (
                     <span key={t} className="px-3 py-1 text-xs tracking-wide uppercase"
@@ -470,63 +470,115 @@ export default function Portfolio() {
       {/* ── CONTACT ── */}
       <section id="contact" className="relative z-10 overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{ width: "70vw", height: "40vh", background: "radial-gradient(ellipse, rgba(147,51,234,0.2) 0%, transparent 70%)" }} />
-        <div className="max-w-6xl mx-auto px-6 py-24 relative">
+          style={{ width: "70vw", height: "50vh", background: "radial-gradient(ellipse, rgba(147,51,234,0.18) 0%, transparent 70%)" }} />
+        <div className="max-w-4xl mx-auto px-6 py-24 relative">
+
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.4em] uppercase mb-3"
-              style={{ color: "rgba(192,132,252,0.5)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
+            <p className="text-xs tracking-[0.4em] uppercase mb-4 font-semibold"
+              style={{ color: "rgba(192,132,252,0.7)" }}>
               Get In Touch
             </p>
-            <h2 className="text-4xl md:text-5xl font-normal mb-4" style={{ letterSpacing: "-0.02em", color: "#f3e8ff" }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-5" style={{ letterSpacing: "-0.02em", color: "#f3e8ff" }}>
               Let's Start a <GradSpan>Conversation</GradSpan>
             </h2>
-            <p className="text-base max-w-md mx-auto" style={{ color: "rgba(237,233,254,0.5)", lineHeight: "1.9" }}>
-              Actively seeking internship and full-time opportunities from Summer 2025. Open to collaborations and interesting projects.
+            <p className="text-base max-w-lg mx-auto font-normal" style={{ color: "rgba(237,233,254,0.72)", lineHeight: "1.85", fontSize: "1rem" }}>
+              I'm currently a CS student open to internships, collaborations, and interesting projects. Feel free to reach out through any of the channels below.
             </p>
           </div>
 
-          <div className="max-w-xl mx-auto p-10 text-center"
-            style={{
-              background: "linear-gradient(135deg, rgba(91,33,182,0.2), rgba(46,16,101,0.12))",
-              border: "1px solid rgba(168,85,247,0.25)",
-              borderRadius: "8px",
-              boxShadow: "0 0 60px rgba(147,51,234,0.1)",
-            }}>
-            <a href="mailto:alex@mit.edu"
-              className="inline-block px-10 py-4 mb-8 text-sm tracking-widest uppercase font-semibold transition-all duration-200"
-              style={{
-                background: "linear-gradient(90deg, #9333ea, #7c3aed)",
-                color: "#fff", borderRadius: "4px",
-                boxShadow: "0 0 28px rgba(147,51,234,0.45)",
-                fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 0 48px rgba(147,51,234,0.7)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "0 0 28px rgba(147,51,234,0.45)"; }}>
-              Say Hello →
-            </a>
-            <p className="text-xs mb-6" style={{ color: "rgba(196,181,253,0.4)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
-              or find me on
-            </p>
-            <div className="flex justify-center flex-wrap gap-4" style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
-              {[
-                { label: "GitHub", href: "https://github.com/joreenn", target: "_blank" },
-                { label: "Facebook", href: "https://www.facebook.com/jorenmontejo", target: "_blank" },
-                { label: "Telegram", href: "https://t.me/Joren_montejo", target: "_blank" },
-                { label: "Resume ↓", href: "/resume.pdf", target: "_blank", download: true },
-              ].map((link) => (
-                <a key={link.label}
-                  href={link.href}
-                  target={link.target}
-                  rel="noopener noreferrer"
-                  {...(link.download ? { download: "Montejo_CV.pdf" } : {})}
-                  className="px-5 py-2.5 text-xs tracking-widest uppercase transition-all duration-200"
-                  style={{ border: "1px solid rgba(168,85,247,0.28)", color: "rgba(196,181,253,0.55)", borderRadius: "4px" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#a855f7"; e.currentTarget.style.color = "#d8b4fe"; e.currentTarget.style.background = "rgba(147,51,234,0.12)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(168,85,247,0.28)"; e.currentTarget.style.color = "rgba(196,181,253,0.55)"; e.currentTarget.style.background = "transparent"; }}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
+          {/* Contact cards grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            {[
+              {
+                label: "GitHub",
+                sublabel: "@joreenn",
+                href: "https://github.com/joreenn",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                ),
+                color: "#c084fc",
+              },
+              {
+                label: "Facebook",
+                sublabel: "jorenmontejo",
+                href: "https://www.facebook.com/jorenmontejo",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073C24 5.4 18.6 0 12 0S0 5.4 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                  </svg>
+                ),
+                color: "#818cf8",
+              },
+              {
+                label: "Telegram",
+                sublabel: "@Joren_montejo",
+                href: "https://t.me/Joren_montejo",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
+                ),
+                color: "#38bdf8",
+              },
+              {
+                label: "Resume",
+                sublabel: "Download PDF",
+                href: "/resume.pdf",
+                download: "Montejo_CV.pdf",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="12" y1="12" x2="12" y2="18"/>
+                    <polyline points="9 15 12 18 15 15"/>
+                  </svg>
+                ),
+                color: "#a78bfa",
+              },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...(item.download ? { download: item.download } : {})}
+                className="group flex items-center gap-5 p-5 transition-all duration-250"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(168,85,247,0.2)",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(147,51,234,0.12)";
+                  e.currentTarget.style.borderColor = "rgba(192,132,252,0.5)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 8px 30px rgba(147,51,234,0.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+                  e.currentTarget.style.borderColor = "rgba(168,85,247,0.2)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}>
+                {/* Icon */}
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg"
+                  style={{ background: `rgba(${item.color === "#c084fc" ? "192,132,252" : item.color === "#818cf8" ? "129,140,248" : item.color === "#38bdf8" ? "56,189,248" : "167,139,250"},0.12)`, color: item.color }}>
+                  {item.icon}
+                </div>
+                {/* Text */}
+                <div className="flex-1 text-left">
+                  <p className="font-semibold text-base mb-0.5" style={{ color: "#f0ebff", letterSpacing: "-0.01em" }}>{item.label}</p>
+                  <p className="text-sm font-normal" style={{ color: "rgba(196,181,253,0.6)" }}>{item.sublabel}</p>
+                </div>
+                {/* Arrow */}
+                <svg className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "rgba(168,85,247,0.5)" }}>
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -535,8 +587,8 @@ export default function Portfolio() {
       <footer className="relative z-10 px-6 py-6"
         style={{ borderTop: "1px solid rgba(168,85,247,0.12)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
-          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.3)" }}>© 2026 Joren Montejo</span>
-          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.3)" }}>Tagum City, Davao Del Norte</span>
+          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.55)" }}>© 2026 Joren Montejo</span>
+          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.55)" }}>Tagum City, Davao Del Norte</span>
         </div>
       </footer>
 
