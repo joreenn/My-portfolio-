@@ -5,8 +5,8 @@ const NAV_LINKS = ["About", "Skills", "Projects", "Contact"];
 const SKILLS = [
   { category: "Languages", items: ["Python", "JavaScript", "TypeScript", "C++", "Java"] },
   { category: "Frontend", items: ["React", "Next.js", "HTML & CSS", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "FastAPI", "PostgreSQL", "REST APIs"] },
-  { category: "Tools", items: ["Git", "Docker", "AWS", "Linux", "Figma"] },
+  { category: "Backend", items: ["Node.js",  "MySQL"] },
+  { category: "Tools", items: ["Git", "Docker", "Figma"] },
 ];
 
 const PROJECTS = [
@@ -426,7 +426,7 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROJECTS.map((p) => (
               <a key={p.title} href={p.repo} target="_blank" rel="noopener noreferrer"
-                className="p-8 group relative overflow-hidden transition-all duration-300 cursor-pointer block no-underline"
+                className="p-8 group relative overflow-hidden transition-all duration-300 cursor-pointer block"
                 style={{
                   background: "linear-gradient(135deg, rgba(91,33,182,0.14), rgba(46,16,101,0.08))",
                   border: "1px solid rgba(168,85,247,0.18)",
@@ -452,7 +452,6 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
-                {/* GitHub link label */}
                 <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ color: "#a855f7" }}>
