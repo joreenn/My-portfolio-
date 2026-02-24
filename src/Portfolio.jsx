@@ -11,32 +11,28 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    title: "NeuralChat",
-    desc: "A real-time AI-powered chat platform using retrieval-augmented generation. Handles high-concurrency scenarios with efficient context management.",
-    tags: ["Python", "React", "Redis", "LangChain"],
+    title: "Sammie's Apt",
+    desc: "An apartment management system designed to streamline tenant records, unit tracking, and rental payment monitoring for small-scale property management.",
+    tags: ["HTML", "CSS", "JavaScript", "PHP"],
     year: "2024",
     color: "#9333ea",
+    repo: "https://github.com/jorenmontejo/SammiesApt",
   },
   {
-    title: "CodeCollab",
-    desc: "Collaborative code editor with live execution, video communication, and automated code review powered by static analysis.",
-    tags: ["TypeScript", "WebRTC", "Docker", "Node.js"],
+    title: "Water Refilling System",
+    desc: "A point-of-sale and inventory management system for a water refilling station, handling customer orders, stock levels, and transaction records.",
+    tags: ["PHP", "MySQL", "HTML", "CSS"],
     year: "2024",
     color: "#7c3aed",
+    repo: "https://github.com/joreenn/WaterRefillingSystem",
   },
   {
-    title: "QuantumDB",
-    desc: "An experimental distributed key-value store implementing the Raft consensus algorithm for fault-tolerant data storage.",
-    tags: ["Rust", "Raft", "gRPC"],
-    year: "2023",
+    title: "School Bell System",
+    desc: "An automated school bell scheduler that triggers bell rings based on a configurable timetable, replacing manual bell ringing with a reliable digital solution.",
+    tags: ["Python", "Tkinter", "Automation"],
+    year: "2024",
     color: "#a855f7",
-  },
-  {
-    title: "DataWeave",
-    desc: "A visual ETL pipeline builder enabling non-technical users to design data transformations that compile to optimized SQL.",
-    tags: ["Python", "React", "PostgreSQL"],
-    year: "2023",
-    color: "#8b5cf6",
+    repo: "https://github.com/joreenn/School-bell",
   },
 ];
 
@@ -427,13 +423,15 @@ export default function Portfolio() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROJECTS.map((p) => (
-              <div key={p.title} className="p-8 group relative overflow-hidden transition-all duration-300 cursor-pointer"
+              <a key={p.title} href={p.repo} target="_blank" rel="noopener noreferrer"
+                className="p-8 group relative overflow-hidden transition-all duration-300 cursor-pointer block no-underline"
                 style={{
                   background: "linear-gradient(135deg, rgba(91,33,182,0.14), rgba(46,16,101,0.08))",
                   border: "1px solid rgba(168,85,247,0.18)",
                   borderRadius: "6px",
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "linear-gradient(135deg, rgba(147,51,234,0.22), rgba(91,33,182,0.12))"; e.currentTarget.style.borderColor = "rgba(192,132,252,0.4)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(147,51,234,0.18)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "linear-gradient(135deg, rgba(91,33,182,0.14), rgba(46,16,101,0.08))"; e.currentTarget.style.borderColor = "rgba(168,85,247,0.18)"; e.currentTarget.style.boxShadow = "none"; }}>
@@ -442,7 +440,7 @@ export default function Portfolio() {
                 <div className="flex items-center justify-between mb-5"
                   style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
                   <span className="text-xs tracking-widest uppercase" style={{ color: "rgba(192,132,252,0.5)" }}>{p.year}</span>
-                  <span style={{ color: "rgba(192,132,252,0.35)", fontSize: "1.1rem" }}>↗</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "rgba(192,132,252,0.5)", fontSize: "1.1rem" }}>↗</span>
                 </div>
                 <h3 className="text-xl font-normal mb-3" style={{ color: "#f3e8ff" }}>{p.title}</h3>
                 <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(237,233,254,0.5)", lineHeight: "1.8" }}>{p.desc}</p>
@@ -454,7 +452,15 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
-              </div>
+                {/* GitHub link label */}
+                <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ color: "#a855f7" }}>
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span className="text-xs tracking-widest uppercase" style={{ color: "#a855f7" }}>View on GitHub</span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
