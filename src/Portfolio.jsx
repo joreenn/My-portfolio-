@@ -14,7 +14,7 @@ const PROJECTS = [
     title: "Sammie's Apt",
     desc: "An apartment management system designed to streamline tenant records, unit tracking, and rental payment monitoring for small-scale property management.",
     tags: ["HTML", "CSS", "JavaScript", "PHP"],
-    year: "2024",
+    year: "2025",
     color: "#9333ea",
     repo: "https://github.com/jorenmontejo/SammiesApt",
   },
@@ -22,7 +22,7 @@ const PROJECTS = [
     title: "Water Refilling System",
     desc: "A point-of-sale and inventory management system for a water refilling station, handling customer orders, stock levels, and transaction records.",
     tags: ["PHP", "MySQL", "HTML", "CSS"],
-    year: "2024",
+    year: "2025",
     color: "#7c3aed",
     repo: "https://github.com/joreenn/WaterRefillingSystem",
   },
@@ -30,7 +30,7 @@ const PROJECTS = [
     title: "School Bell System",
     desc: "An automated school bell scheduler that triggers bell rings based on a configurable timetable, replacing manual bell ringing with a reliable digital solution.",
     tags: ["Python", "Tkinter", "Automation"],
-    year: "2024",
+    year: "2025",
     color: "#a855f7",
     repo: "https://github.com/joreenn/School-bell",
   },
@@ -508,13 +508,22 @@ export default function Portfolio() {
               or find me on
             </p>
             <div className="flex justify-center flex-wrap gap-4" style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
-              {["GitHub", "LinkedIn", "Twitter", "Resume"].map((link) => (
-                <a key={link} href="#"
+              {[
+                { label: "GitHub", href: "https://github.com/joreenn", target: "_blank" },
+                { label: "Facebook", href: "https://www.facebook.com/jorenmontejo", target: "_blank" },
+                { label: "Telegram", href: "https://t.me/Joren_montejo", target: "_blank" },
+                { label: "Resume ↓", href: "/resume.pdf", target: "_blank", download: true },
+              ].map((link) => (
+                <a key={link.label}
+                  href={link.href}
+                  target={link.target}
+                  rel="noopener noreferrer"
+                  {...(link.download ? { download: "Montejo_CV.pdf" } : {})}
                   className="px-5 py-2.5 text-xs tracking-widest uppercase transition-all duration-200"
                   style={{ border: "1px solid rgba(168,85,247,0.28)", color: "rgba(196,181,253,0.55)", borderRadius: "4px" }}
                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#a855f7"; e.currentTarget.style.color = "#d8b4fe"; e.currentTarget.style.background = "rgba(147,51,234,0.12)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(168,85,247,0.28)"; e.currentTarget.style.color = "rgba(196,181,253,0.55)"; e.currentTarget.style.background = "transparent"; }}>
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
@@ -526,8 +535,8 @@ export default function Portfolio() {
       <footer className="relative z-10 px-6 py-6"
         style={{ borderTop: "1px solid rgba(168,85,247,0.12)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
-          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.3)" }}>© 2024 Joren Montejo</span>
-          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.3)" }}>Cambridge, Massachusetts</span>
+          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.3)" }}>© 2026 Joren Montejo</span>
+          <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.3)" }}>Tagum City, Davao Del Norte</span>
         </div>
       </footer>
 
