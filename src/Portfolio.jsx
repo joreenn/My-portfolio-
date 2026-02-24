@@ -186,47 +186,49 @@ export default function Portfolio() {
       {/* ── NAV ── */}
       <nav className="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
         style={{
-          background: scrolled ? "rgba(15,4,32,0.85)" : "transparent",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(168,85,247,0.2)" : "1px solid transparent",
+          background: scrolled ? "rgba(15,4,32,0.88)" : "transparent",
+          backdropFilter: scrolled ? "blur(24px)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(168,85,247,0.18)" : "1px solid transparent",
           fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
         }}>
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span className="font-bold tracking-widest uppercase text-sm"
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
+          {/* Logo — left */}
+          <span className="font-bold tracking-widest uppercase text-sm flex-shrink-0"
             style={{
               background: "linear-gradient(90deg, #d8b4fe, #a855f7)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             }}>
             Joren Montejo
           </span>
-          <div className="hidden md:flex gap-10">
+
+          {/* Links — absolutely centered on desktop */}
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {NAV_LINKS.map((l) => (
               <button key={l} onClick={() => scrollTo(l)}
-                className="text-xs tracking-widest uppercase transition-colors duration-200"
-                style={{ color: "rgba(216,180,254,0.72)" }}
-                onMouseEnter={(e) => (e.target.style.color = "#d8b4fe")}
-                onMouseLeave={(e) => (e.target.style.color = "rgba(216,180,254,0.72)")}>
+                className="px-4 py-2 text-xs tracking-widest uppercase rounded-md transition-all duration-200"
+                style={{ color: "rgba(216,180,254,0.65)", background: "transparent" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#e9d5ff";
+                  e.currentTarget.style.background = "rgba(168,85,247,0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "rgba(216,180,254,0.65)";
+                  e.currentTarget.style.background = "transparent";
+                }}>
                 {l}
               </button>
             ))}
           </div>
-          {/* CTA pill */}
-          <a href="mailto:alex@mit.edu"
-            className="hidden md:inline-block px-5 py-2 text-xs tracking-widest uppercase font-semibold transition-all duration-200"
-            style={{
-              background: "linear-gradient(90deg, #9333ea, #7c3aed)",
-              color: "#fff", borderRadius: "999px",
-              boxShadow: "0 0 18px rgba(147,51,234,0.4)",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 0 30px rgba(147,51,234,0.7)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "0 0 18px rgba(147,51,234,0.4)"; }}>
-            Let's Connect
-          </a>
+
+          {/* Hamburger — mobile only, right side */}
           <button className="md:hidden" style={{ color: "#d8b4fe" }} onClick={() => setMenuOpen(!menuOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
+
+          {/* Spacer to balance logo on desktop */}
+          <div className="hidden md:block flex-shrink-0" style={{ width: "120px" }} />
         </div>
       </nav>
 
