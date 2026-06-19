@@ -51,7 +51,6 @@ const CERTIFICATIONS = [
     date: "May 21, 2026",
     year: "2026",
     color: "#0891b2",
-    expiry: "May 21, 2031",
     image: "/cert-cybersecurity.jpg",
   },
   {
@@ -60,7 +59,6 @@ const CERTIFICATIONS = [
     date: "March 9, 2026",
     year: "2026",
     color: "#0d9488",
-    expiry: "March 9, 2031",
     image: "/cert-network-security.jpg",
   },
 ];
@@ -359,7 +357,7 @@ export default function Portfolio() {
                 pointerEvents: "none",
               }} />
               <img
-                src="/photo.jpg"
+                src="/uploaded-img%20(3).png"
                 alt="Joren Montejo"
                 style={{
                   width: "320px",
@@ -683,8 +681,8 @@ export default function Portfolio() {
               {
                 label: "Resume",
                 sublabel: "Download PDF",
-                href: "/resume.pdf",
-                download: "Montejo_CV.pdf",
+                href: "/RESUME%20(MONTEJO).pdf",
+                download: "RESUME (MONTEJO).pdf",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
