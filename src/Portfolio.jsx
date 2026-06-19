@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 
-const NAV_LINKS = ["About", "Skills", "Projects", "Contact"];
+const NAV_LINKS = ["About", "Skills", "Projects", "Certifications", "Contact"];
 
 const SKILLS = [
-  { category: "Languages", items: ["Python", "JavaScript", "TypeScript", "C++", "Java"] },
+  { category: "Languages", items: ["Python", "JavaScript", "TypeScript", "Java"] },
   { category: "Frontend", items: ["React", "Next.js", "HTML & CSS", "Tailwind CSS"] },
   { category: "Backend", items: ["Node.js",  "MySQL"] },
   { category: "Tools", items: ["Git", "Docker", "Figma"] },
@@ -19,20 +19,49 @@ const PROJECTS = [
     repo: "https://github.com/jorenmontejo/SammiesApt",
   },
   {
-    title: "Water Refilling System",
-    desc: "A point-of-sale and inventory management system for a water refilling station, handling customer orders, stock levels, and transaction records.",
-    tags: ["PHP", "MySQL", "HTML", "CSS"],
+    title: "JZ Waters",
+    desc: "A full-stack water refilling station and delivery management system with admin, refiller, driver, and customer workflows for orders, inventory, and reports.",
+    tags: ["JavaScript", "PHP", "Blade", "MySQL"],
     year: "2025",
     color: "#7c3aed",
-    repo: "https://github.com/joreenn/WaterRefillingSystem",
+    repo: "https://github.com/joreenn/JZ-Waters",
   },
   {
-    title: "School Bell System",
-    desc: "An automated school bell scheduler that triggers bell rings based on a configurable timetable, replacing manual bell ringing with a reliable digital solution.",
-    tags: ["Python", "Tkinter", "Automation"],
+    title: "CS10 Simulation",
+    desc: "A Python-based hospital ER simulation with a web interface for visualizing patient flow, resource usage, and statistical results.",
+    tags: ["Python", "HTML", "Flask", "SimPy"],
     year: "2025",
     color: "#a855f7",
-    repo: "https://github.com/joreenn/School-bell",
+    repo: "https://github.com/joreenn/CS10_Simulation",
+  },
+];
+
+const CERTIFICATIONS = [
+  {
+    title: "Databases",
+    issuer: "Pearson VUE",
+    date: "March 10, 2025",
+    year: "2025",
+    color: "#06b6d4",
+    image: "/cert-databases.jpg",
+  },
+  {
+    title: "Cybersecurity",
+    issuer: "Pearson VUE",
+    date: "May 21, 2026",
+    year: "2026",
+    color: "#0891b2",
+    expiry: "May 21, 2031",
+    image: "/cert-cybersecurity.jpg",
+  },
+  {
+    title: "Network Security",
+    issuer: "Pearson VUE",
+    date: "March 9, 2026",
+    year: "2026",
+    color: "#0d9488",
+    expiry: "March 9, 2031",
+    image: "/cert-network-security.jpg",
   },
 ];
 
@@ -154,6 +183,7 @@ function ShootingStars() {
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [selectedCert, setSelectedCert] = useState(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -469,6 +499,132 @@ export default function Portfolio() {
 
       <GradientDivider />
 
+      {/* ── CERTIFICATIONS ── */}
+      <section id="certifications" className="relative z-10">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <div className="text-center mb-16">
+            <p className="text-xs tracking-[0.4em] uppercase mb-3"
+              style={{ color: "rgba(192,132,252,0.5)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
+              Credentials & Achievements
+            </p>
+            <h2 className="text-4xl md:text-5xl" style={{ letterSpacing: "-0.02em", color: "#f3e8ff" }}>
+              Professional <GradSpan>Certifications</GradSpan>
+            </h2>
+            <p className="mt-4 text-sm max-w-md mx-auto" style={{ color: "rgba(237,233,254,0.72)", lineHeight: "1.8" }}>
+              Industry-recognized certifications demonstrating expertise in information technology specializations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {CERTIFICATIONS.map((cert) => (
+              <div key={cert.title} 
+                className="group relative overflow-hidden transition-all duration-300 cursor-pointer"
+                style={{
+                  background: "linear-gradient(135deg, rgba(91,33,182,0.14), rgba(46,16,101,0.08))",
+                  border: "1px solid rgba(168,85,247,0.18)",
+                  borderRadius: "6px",
+                  padding: "0",
+                }}
+                onMouseEnter={(e) => { 
+                  e.currentTarget.style.background = "linear-gradient(135deg, rgba(147,51,234,0.22), rgba(91,33,182,0.12))"; 
+                  e.currentTarget.style.borderColor = "rgba(192,132,252,0.4)"; 
+                  e.currentTarget.style.boxShadow = "0 8px 40px rgba(147,51,234,0.18)";
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => { 
+                  e.currentTarget.style.background = "linear-gradient(135deg, rgba(91,33,182,0.14), rgba(46,16,101,0.08))"; 
+                  e.currentTarget.style.borderColor = "rgba(168,85,247,0.18)"; 
+                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}>
+                
+                {/* Gradient top border on hover */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+                  style={{ background: `linear-gradient(90deg, transparent, ${cert.color}, transparent)` }} />
+
+                {/* Certificate Image - Clickable */}
+                <div 
+                  className="relative overflow-hidden cursor-pointer group/image"
+                  style={{ height: "280px" }}
+                  onClick={() => setSelectedCert(cert)}>
+                  <img 
+                    src={cert.image}
+                    alt={`${cert.title} Certification`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                      transition: "transform 0.3s ease",
+                    }}
+                    className="group-hover/image:scale-105"
+                  />
+                  {/* Overlay on hover */}
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
+                    style={{ background: "rgba(0,0,0,0.6)" }}>
+                    <div className="flex items-center gap-2" style={{ color: "#fff" }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                      </svg>
+                      <span className="text-sm font-medium">Click to enlarge</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card content */}
+                <div style={{ padding: "2rem" }}>
+                  {/* Year badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs tracking-widest uppercase"
+                    style={{
+                      background: `rgba(${cert.color === "#06b6d4" ? "6,182,212" : cert.color === "#0891b2" ? "8,145,178" : "13,148,136"},0.12)`,
+                      border: `1px solid ${cert.color}33`,
+                      borderRadius: "999px",
+                      color: cert.color,
+                      fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
+                    }}>
+                    {cert.year}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-normal mb-3" style={{ color: "#f3e8ff" }}>{cert.title}</h3>
+
+                  {/* Issuer */}
+                  <p className="text-sm mb-4" style={{ color: "rgba(237,233,254,0.75)" }}>
+                    Issued by <span style={{ color: cert.color, fontWeight: "500" }}>{cert.issuer}</span>
+                  </p>
+
+                  {/* Date and ID info */}
+                  <div className="space-y-2 mb-5 pb-5" style={{ borderBottom: "1px solid rgba(168,85,247,0.12)" }}>
+                    <div className="flex justify-between items-start">
+                      <span className="text-xs tracking-widest uppercase" style={{ color: "rgba(192,132,252,0.5)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>Date Awarded</span>
+                      <span className="text-sm font-medium" style={{ color: "rgba(237,233,254,0.9)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif", letterSpacing: "-0.01em" }}>{cert.date}</span>
+                    </div>
+                    {cert.expiry && (
+                      <div className="flex justify-between items-start">
+                        <span className="text-xs tracking-widest uppercase" style={{ color: "rgba(192,132,252,0.5)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>Expires</span>
+                        <span className="text-sm font-medium" style={{ color: "rgba(237,233,254,0.9)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif", letterSpacing: "-0.01em" }}>{cert.expiry}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Verify link */}
+                  <div className="mt-5 pt-5 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs tracking-widest uppercase"
+                    style={{ color: cert.color, fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif", cursor: "pointer" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span>Verify on CertiPort</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <GradientDivider />
+
       {/* ── CONTACT ── */}
       <section id="contact" className="relative z-10 overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
@@ -593,6 +749,72 @@ export default function Portfolio() {
           <span className="text-xs tracking-widest" style={{ color: "rgba(192,132,252,0.55)" }}>Tagum City, Davao Del Norte</span>
         </div>
       </footer>
+
+      {/* Certificate Lightbox Modal */}
+      {selectedCert && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setSelectedCert(null)}>
+          <div 
+            className="relative max-w-2xl w-full"
+            onClick={(e) => e.stopPropagation()}>
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedCert(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200"
+              style={{ 
+                background: "rgba(255,255,255,0.15)",
+                backdropFilter: "blur(10px)",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.25)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+
+            {/* Certificate Image */}
+            <img 
+              src={selectedCert.image}
+              alt={`${selectedCert.title} Certification`}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "8px",
+                boxShadow: "0 20px 60px rgba(147,51,234,0.4)",
+              }}
+            />
+
+            {/* Certificate Info Below Image */}
+            <div className="mt-6 p-6 rounded-lg"
+              style={{ 
+                background: "linear-gradient(135deg, rgba(91,33,182,0.2), rgba(46,16,101,0.1))",
+                border: "1px solid rgba(168,85,247,0.25)",
+              }}>
+              <h3 className="text-2xl font-semibold mb-2" style={{ color: "#f3e8ff" }}>{selectedCert.title}</h3>
+              <p className="mb-4" style={{ color: "rgba(237,233,254,0.75)" }}>
+                Issued by <span style={{ color: selectedCert.color, fontWeight: "600" }}>{selectedCert.issuer}</span>
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: "rgba(192,132,252,0.6)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>Date Awarded</p>
+                  <p className="text-base font-medium" style={{ color: "rgba(237,233,254,0.9)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>{selectedCert.date}</p>
+                </div>
+                {selectedCert.expiry && (
+                  <div>
+                    <p className="text-xs tracking-widest uppercase mb-1" style={{ color: "rgba(192,132,252,0.6)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>Expires</p>
+                    <p className="text-base font-medium" style={{ color: "rgba(237,233,254,0.9)", fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>{selectedCert.expiry}</p>
+                  </div>
+                )}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes pulse {
